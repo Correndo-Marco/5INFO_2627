@@ -6,9 +6,9 @@
 	<section>
 	<nav>
 	<ul>
-	<li><a href="#">Chi sono</a></li>
-	<li><a href="#">Counter</a></li>
-	<li><a href="#">About</a></li>
+	<li><a href="/">Chi sono</a></li>
+	<li><a href="/">Counter</a></li>
+	<li><a href="/">About</a></li>
 	</ul>
 	</nav>
 
