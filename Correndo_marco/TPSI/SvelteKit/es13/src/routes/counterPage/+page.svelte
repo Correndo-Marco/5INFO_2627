@@ -4,6 +4,7 @@
     let contatore = 1;
     let contatore1 = 1;
     let numeri = [1,3,4,5,51,231,24,51,241,24312,421521,412,1213];
+    $: sottolineato = !(contatore % 2);
 </script>
 
 <h1>Counter page</h1>
@@ -17,9 +18,8 @@
     <h3 class="purple">Counter settato a {contatore1}</h3>
 {/if}
 
-
 <DoubleCounter bind:counter={contatore}/>
-<h3>Double Counter settato a {contatore}</h3>
+<h3 class:sottolineato>Double Counter settato a {contatore}</h3>
 
 <h3>Lista di numeri</h3>
 <ul>
@@ -34,7 +34,8 @@
 
 
 <style>
-    .purple{color:purple}
+    .purple{color:purple;}
     .red{color: red;}
     .green{color: green;}
+    .sottolineato{text-decoration: underline;}
 </style>
