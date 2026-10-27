@@ -4,19 +4,32 @@
 </svelte:head>
 
 <script>
+    import { createEventDispatcher } from 'svelte';
+
+    const dispatch = createEventDispatcher();
     export let counter = 1;
 
-    function incr(){
-        counter += 1;
+    function emetti(tipo){
+        dispatch('contatore',{
+            tipo: tipo,
+            valore: counter}
+        );
     }
-    function decr(){
+
+    function count_incr(){
+        counter += 1;
+        emetti("incr");
+    }
+    
+    function count_decr(){
         counter -= 1;
+        emetti("decr");
     }
 </script>
 
 <div class="container">
     <div class="pulsante">
-        <button on:click={decr}>
+        <button on:click={count_decr}>
             <span class="material-symbols-outlined icon">remove</span>
         </button>
     </div>
@@ -24,7 +37,7 @@
         {counter}
     </div>
     <div class="pulsante">
-        <button on:click={incr}>
+        <button on:click={count_incr}>
             <span class="material-symbols-outlined icon">add</span>
         </button>
     </div>
