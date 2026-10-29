@@ -6,6 +6,6 @@
 
 <style>
     p:hover{
-        background-color: black;
+        background-color: lightgray;
     }
 </style>
