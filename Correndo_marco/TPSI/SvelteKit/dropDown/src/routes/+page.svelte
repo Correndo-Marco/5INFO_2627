@@ -1,23 +1,12 @@
 <script>
-    import DropDown from "../lib/components/dropDown.svelte";
+    import DropList from "../lib/components/dropList.svelte";
     let valori = {
-        "Regione" : ["Piemonte","Liguria","Lombardia"],
+        "Regione" : ["Piemonte","Liguria","Lombardia","Veneto","Emilia-Romagna"],
         "Stato" : ["Italia","Germania","Giappone"],
-        "Citta" : ["Torino","Genova","Milano"]
+        "Citta" : ["Torino","Genova","Milano","Aosta","Venezia","Perugia"]
     };
 </script>
 
 <h1>DROP DOWN TESTER</h1>
 
-<div class="cont">
-    {#each Object.keys(valori) as nome}
-        <DropDown nome={nome} valori={valori[nome]} />
-    {/each}
-</div>
-
-<style>
-    .cont{
-        align-items: center;
-        width: 30%;
-    }
-</style>
+<DropList valori={valori} />

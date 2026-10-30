@@ -1,3 +1,3 @@
 import { writable } from "svelte/store";
 
-export const lastNome = writable(0);
+export const lastNome = writable("0");

@@ -1,50 +1,33 @@
 <script>
     import DropItem from "./dropItem.svelte";
-    import { createEventDispatcher } from 'svelte';
-    import { last } from "../js/store.js"
+    import  { lastNome } from "../js/store.js";
 
-    const dispatch = createEventDispatcher();
     export let nome;
     export let valori;
-    let stato = true;
+    export let select = null;
+    
+    let stato =  true;   // true chiuso, false aperto
+    $: stato = $lastNome != nome;
 
-    function emetti(valore){
-        dispatch('DropDown',{
-            nome: valore
-        });
-    }
-    function manda(){
-        stato = !stato
-        emetti(nome)
-    }
     function fun(){
         stato = !stato;
         if(!stato){
-           $last = nome 
-        }else if($last != nome){
-            stato = true;
+           $lastNome = nome;
         }
-        
     }
-
 </script>
 
-<div class="titolo">
-    <h1 on:click={fun}>{nome}</h1>
-</div>
+<h1 on:click={fun}>{nome}</h1>
 
 <ul>
     {#each valori as val}
         <li class:stato>
-            <DropItem valore={val} />
+            <DropItem valore={val} bind:selezionato={select} />
         </li>
     {/each}
 </ul>
 
 <style>
-    .titolo{
-        width: auto;    
-    }
     h1 {
         background-color: red;
         border-radius: 10px;
